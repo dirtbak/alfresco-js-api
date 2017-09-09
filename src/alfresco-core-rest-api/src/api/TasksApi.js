@@ -19,7 +19,28 @@
     this.apiClient = apiClient || ApiClient.instance;
 
     this.getTasks = function(opts) {
+      opts = opts || {};
+      var postBody = null;
 
+      var pathParams = {
+      };
+
+      var queryParams = {
+        'skipCount': opts['skipCount'],
+        'maxItems': opts['maxItems'],
+        'orderBy': opts['orderBy'],
+        'where': opts['where'],
+      };
+
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      return this.apiClient.callApi(
+        '/tasks', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody
+      );
     }
   }
 
