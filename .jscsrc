@@ -8,8 +8,6 @@
   "requireParenthesesAroundIIFE": true,
   "requireCamelCaseOrUpperCaseIdentifiers": false,
   "maximumLineLength": 240,
-  "validateLineBreaks": "LF",
-  "validateIndentation": 4,
   "disallowTrailingComma": true,
   "disallowUnusedParams": true,
   "disallowMultipleVarDecl": false,
