@@ -1470,6 +1470,37 @@ declare namespace AlfrescoApi {
         pagination?: Pagination;
     }
 
+    export interface Task {
+        id?: string;
+        processId?: string;
+        processDefinitionId?: string;
+        activityDefinitionId?: string;
+        name?: string;
+        description?: string;
+        dueAt?: Date;
+        startedAt?: Date;
+        endedAt?: Date;
+        durationInMs?: number;
+        priority?: number;
+        owner?: string;
+        assignee?: string;
+        formResourceKey?: string;
+        state?: string;
+    }
+
+    export interface TaskEntry {
+        entry?: Task;
+    }
+
+    export interface TaskPaging {
+        list?: TaskPagingList;
+    }
+
+    export interface TaskPagingList {
+        entries?: Array<TaskEntry>;
+        pagination?: Pagination;
+    }
+
     export interface UserInfo {
         displayName?: string;
         id?: string;
