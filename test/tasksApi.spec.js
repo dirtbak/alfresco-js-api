@@ -28,8 +28,8 @@ describe('Tasks', function () {
 
         this.alfrescoJsApi.core.tasksApi.getTasks().then(function (data) {
             expect(data.list.pagination.count).to.be.equal(2);
-            expect(data.list.entries[0].entry.task.description).to.be.equal('One');
-            expect(data.list.entries[1].entry.task.description).to.be.equal('Two');
+            expect(data.list.entries[0].entry.description).to.be.equal('One');
+            expect(data.list.entries[1].entry.description).to.be.equal('Two');
             done();
         }, function () {
         });
