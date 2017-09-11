@@ -340,6 +340,9 @@
 
     var _this = this;
     var url = this.buildUrl(path, pathParams);
+
+    console.info("url", url);
+
     var request = superagent(httpMethod, url);
 
     // apply authentications
