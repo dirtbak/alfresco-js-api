@@ -3,14 +3,14 @@
     // AMD. Register as an anonymous module.
     define(['../ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
+    // CommonJS-like environments that support module.exports, like Task.
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.AlfrescoCoreRestApi) {
       root.AlfrescoCoreRestApi = {};
     }
-    root.AlfrescoCoreRestApi.Node = factory(root.AlfrescoCoreRestApi.ApiClient);
+    root.AlfrescoCoreRestApi.Task = factory(root.AlfrescoCoreRestApi.ApiClient);
   }
 
 }(this, function(ApiClient) {

@@ -623,6 +623,12 @@ declare namespace AlfrescoApi {
         updateTag(tagId?: string, tagBody?: TagBody): Promise<TagEntry>;
     }
 
+    export interface TasksApi {
+        new(client: ApiClient): TasksApi;
+
+        getTasks(): Promise<TaskPaging>;
+    }
+
     export interface WebscriptApi {
         new(client: ApiClient): WebscriptApi;
 
@@ -1660,6 +1666,7 @@ declare namespace AlfrescoApi {
         sitesApi: SitesApi;
         queriesApi: QueriesApi;
         tagsApi: TagsApi;
+        tasksApi: TasksApi;
         webscriptApi: WebscriptApi;
 
         /*Models*/
