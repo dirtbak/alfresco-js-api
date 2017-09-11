@@ -12,7 +12,7 @@
     }
     root.AlfrescoCoreRestApi.TasksApi = factory(root.AlfrescoCoreRestApi.ApiClient, root.AlfrescoCoreRestApi.Task, root.AlfrescoCoreRestApi.TaskEntry, root.AlfrescoCoreRestApi.TaskPaging);
   }
-}(this, function(ApiClient, TaskEntry, TaskPaging){
+}(this, function(ApiClient, TaskEntry, TaskPaging) {
   'use strict';
 
   var exports = function(apiClient) {
