@@ -1805,6 +1805,10 @@ declare namespace AlfrescoApi {
         TagEntry: TagEntry;
         TagPaging: TagPaging;
         TagPagingList: TagPagingList;
+        Task: Task;
+        TaskEntry: TaskEntry;
+        TaskPaging: TaskPaging;
+        TaskPagingList: TaskPagingList;
         UserInfo: UserInfo;
     }
 
