@@ -63,17 +63,25 @@ declare namespace AlfrescoApi {
         new(config: AlfrescoApiConfig): AlfrescoApi;
 
         changeEcmHost(ecmHost: string): void;
+
         changeBpmHost(bpmHost: string): void;
+
         changeCsrfConfig(disableCsrf: boolean): void;
 
         isLoggedIn(): boolean;
+
         login(username: string, password: string): Promise<string>;
+
         logout(): Promise<any>;
+
         loginTicket(ticket: string): any;
+
         refresh(): Promise<string>;
 
         getTicket(): Array<string>;
+
         getTicketBpm(): string;
+
         getTicketEcm(): string;
 
         setTicket(ticketEcm: any, ticketBpm: any): void;
@@ -243,25 +251,33 @@ declare namespace AlfrescoApi {
 
     export interface EcmClient {
         new(config: AlfrescoApiConfig): EcmClient;
+
         changeHost(host: string): void;
+
         setAuthentications(authentications: any): void;
     }
 
     export interface BpmClient {
         new(config: AlfrescoApiConfig): BpmClient;
+
         changeHost(host: string): void;
+
         setAuthentications(authentications: any): void;
     }
 
     export interface SearchClient {
         new(config: AlfrescoApiConfig): SearchClient;
+
         changeHost(): void;
+
         setAuthentications(authentications: any): void;
     }
 
     export interface EcmPrivateClient {
         new(config: AlfrescoApiConfig): EcmPrivateClient;
+
         changeHost(host: string): void;
+
         setAuthentications(authentications: any): void;
     }
 
@@ -307,21 +323,37 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): NodesApi;
 
         addNode(nodeId: string, nodeBody: any, opts?: any): Promise<MinimalNodeEntity>;
+
         copyNode(nodeId: string, copyBody: any, opts?: any): Promise<MinimalNodeEntity>;
+
         deleteNode(nodeId: string): Promise<void>;
+
         getDeletedNode(nodeId: string, opts?: any): Promise<DeletedNodeEntity>;
+
         getDeletedNodes(opts?: any): Promise<DeletedNodesPaging>;
+
         getFileContent(nodeId: string, opts?: any): Promise<any>;
+
         getNode(nodeId: string, opts?: any): Promise<MinimalNodeEntity>;
+
         getNodeChildren(nodeId: string, opts?: any): Promise<NodePaging>;
+
         moveNode(nodeId: string, moveBody: any, opts?: any): Promise<MinimalNodeEntity>;
+
         purgeDeletedNode(nodeId: string): Promise<void>;
+
         restoreNode(nodeId: string): Promise<MinimalNodeEntity>;
+
         updateFileContent(nodeId: string, contentBody: string, opts?: any): Promise<MinimalNodeEntity>;
+
         updateNode(nodeId: string, nodeBody: any, opts?: any): Promise<MinimalNodeEntity>;
+
         getNodeInfo(nodeId: string, opts?: any): Promise<MinimalNodeEntryEntity>;
+
         deleteNodePermanent(nodeId: string): Promise<void>;
+
         createFolder(name: string, relativePath: string, nodeId?: string, opts?: any): Promise<MinimalNodeEntity>;
+
         createFolderAutoRename(name: string, relativePath: string, nodeId: string, opts): Promise<MinimalNodeEntity>;
     }
 
@@ -427,12 +459,17 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): FavoritesApi;
 
         addFavorite(personId?: string, favoriteBody?: FavoriteBody): Promise<FavoriteEntry>;
+
         // addSiteFavorite(personId?: string, favoriteSiteBody?: FavoriteSiteBody, fields?: Array<string>, opts?: any): Promise<FavoriteSiteEntry>;
         // removeFavorite(personId?: string, favoriteId?: string, opts?: any): Promise<{}>;
         removeFavoriteSite(personId?: string, favoriteId?: string): Promise<{}>;
+
         getFavorite(personId?: string, favoriteId?: string, opts?: any): Promise<FavoriteEntry>;
+
         getFavorites(personId?: string, opts?: { skipCount?: number, maxItems?: number, where?: string, fields?: Array<string> }): Promise<FavoritePaging>;
+
         getFavoriteSite(personId?: string, siteId?: string, opts?: any): Promise<SiteEntry>;
+
         // listFavoriteSitesForPerson(personId?: string, skipCount?: number, maxItems?: number, fields?: Array<string>, opts?: any): Promise<SitePaging>;
         // listFavorites(personId?: string, skipCount?: number, maxItems?: number, where?: string, fields?: Array<string>, opts?: any): Promise<FavoritePaging>;
     }
@@ -441,11 +478,17 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): ChildAssociationsApi;
 
         addNode(nodeld?: string, nodeBody?: NodeBody, opts?: { autoRename?: boolean, include?: Array<string>, fields?: Array<string> }): Promise<{}>;
+
         addSecondaryChildAssoc(parentld?: string, assocChildBody?: AssocChildBody): Promise<{}>;
+
         deleteNode(nodeld?: string, opts?: { permanent?: boolean }): Promise<{}>;
+
         getNodeChildren(nodeld?: string, opts?: { skipCount?: number, maxltems?: number, orderBy?: string, where?: string, include?: Array<string>, relativePath?: string, includeSource?: boolean, fields?: Array<string> }): Promise<{}>;
+
         listParents(childld?: string, opts?: { where?: string, include?: string, fields?: Array<string> }): Promise<{}>;
+
         listSecondaryChildAssociations(parentld?: string, opts?: { assocType?: string, where?: string, include?: string, fields?: Array<string> }): Promise<{}>;
+
         moveNode(nodeld?: string, moveBody?: MoveBody, opts?: { include?: Array<string>, fields?: Array<string> }): Promise<{}>;
     }
 
@@ -453,8 +496,11 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): AssociationsApi;
 
         addAssoc(sourceld?: string, assocTargetBody?: AssocTargetBody): Promise<{}>;
+
         listSourceNodeAssociations(targetld?: string, opts?: { where?: string, include?: string, fields?: Array<string> }): Promise<{}>;
+
         listTargetAssociations(sourceld?: string, opts?: { where?: string, include?: string, fields?: Array<string> }): Promise<{}>;
+
         removeAssoc(sourceld?: string, targetld?: string, opts?: { assocType?: string }): Promise<{}>;
 
     }
@@ -463,8 +509,11 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): CommentsApi;
 
         addComment(nodeId?: string, commentBody?: CommentBody, opts?: any): Promise<CommentEntry>;
+
         removeComment(nodeId?: string, commentId?: string): Promise<{}>;
+
         getomments(nodeId?: string, opts?: any): Promise<CommentPaging>;
+
         updateComment(nodeId?: string, commentId?: string, commentBody?: CommentBody, opts?: any): Promise<CommentEntry>;
     }
 
@@ -472,7 +521,9 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): NetworksApi;
 
         getNetwork(networkId?: string, opts?: any): Promise<PersonNetworkEntry>;
+
         getNetworkForPerson(personId?: string, networkId?: string, opts?: any): Promise<PersonNetworkEntry>;
+
         listNetworksForPerson(personId?: string, opts?: any): Promise<PersonNetworkPaging>;
     }
 
@@ -480,25 +531,45 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): NodesApi;
 
         addNode(nodeld?: string, nodeBody?: NodeBody, opts?: { autoRename?: boolean, include?: Array<string>, fields?: Array<string> }): Promise<NodeEntry>;
+
         copyNode(nodeld?: string, copyBody?: CopyBody, opts?: { include?: Array<string>, fields?: Array<string> }): Promise<NodeEntry>;
+
         deleteNode(nodeld?: string, opts?: { permanent?: boolean }): Promise<{}>;
+
         getDeletedNode(nodeld?: string, opts?: { include?: Array<string> }): Promise<DeletedNodeEntry>;
+
         getDeletedNodes(opts?: { skipCount?: number, maxltems?: number, include?: Array<string> }): Promise<DeletedNodeEntry>;
+
         getFileContent(nodeld?: string, opts?: { attachment?: boolean, ifModifiedSince?: Date }): Promise<{}>;
+
         getNode(nodeld?: string, opts?: { include?: Array<string>, relativePath?: string, fields?: Array<string> }): Promise<{}>;
+
         getNodeContent(nodeId?: string, opts?: any): Promise<{}>;
+
         getNodeChildren(nodeld?: string, opts?: { skipCount?: number, maxltems?: number, orderBy?: string, where?: string, include?: Array<string>, relativePath?: string, includeSource?: boolean, fields?: Array<string> }): Promise<{}>;
+
         getParents(nodeld?: string, opts?: { where?: string, include?: Array<string>, skipCount?: number, maxltems?: number, includeSource?: boolean, fields?: Array<string> }): Promise<{}>;
+
         getSecondaryChildren(nodeld?: string, opts?: { where?: string, include?: Array<string>, skipCount?: number, maxltems?: number, includeSource?: boolean, fields?: Array<string> }): Promise<{}>;
+
         getSourceAssociations(nodeld?: string, opts?: { where?: string, include?: Array<string>, fields?: Array<string> }): Promise<{}>;
+
         getTargetAssociations(nodeld?: string, opts?: { where?: string, include?: Array<string>, fields?: Array<string> }): Promise<{}>;
+
         lockNode(nodeld?: string, nodeBodyLock?: NodeBodyLock, opts?: { include?: Array<string>, fields?: Array<string> }): Promise<{}>;
+
         unlockNode(nodeld?: string, opts?: { include?: Array<string>, fields?: Array<string> }): Promise<{}>;
+
         moveNode(nodeld?: string, moveBody?: MoveBody, opts?: { include?: Array<string>, fields?: Array<string> }): Promise<{}>;
+
         purgeDeletedNode(nodeld?: string): Promise<{}>;
+
         restoreNode(nodeld?: string): Promise<NodeEntry>;
+
         updateFileContent(nodeld?: string, contentBody?: string, opts?: { majorVersion?: boolean, comment?: string, include?: Array<string>, fields?: Array<string> }): Promise<NodeEntry>;
+
         updateNodeContent(nodeId?: string, contentBody?: string, opts?: any): Promise<NodeEntry>;
+
         updateNode(nodeld?: string, nodeBody?: NodeBody, opts?: { include?: Array<string>, fields?: Array<string> }): Promise<NodeEntry>;
     }
 
@@ -506,15 +577,25 @@ declare namespace AlfrescoApi {
         new(client?: ApiClient): SitesApi;
 
         addSiteMember(siteld?: string, siteMemberBody?: SiteMemberBody): Promise<{}>;
+
         createSite(siteBody?: SiteBody, opts?: { skipConfiguration?: Boolean, skipAddToFavorites?: Boolean }): Promise<{}>;
+
         deleteSite(siteld?: string, opts?: { permanent?: Boolean }): Promise<{}>;
+
         getSite(siteld?: string, opts?: { relations?: Array<string>, fields?: Array<string> }): Promise<{}>;
+
         getSiteContainer(siteld?: string, containerld?: string, opts?: Array<string>): Promise<{}>;
+
         getSiteContainers(siteld?: string, opts?: { skipCount?: number, maxltems?: number, fields?: Array<string> }): Promise<{}>;
+
         getSiteMember(siteld?: string, personld?: string, opts?: { fields?: Array<string> }): Promise<{}>;
+
         getSiteMembers(siteld?: string, opts?: { skipCount?: number, maxltems?: number, fields?: Array<string> }): Promise<{}>;
+
         getSites(opts?: { skipCount?: number, maxltems?: number, orderBy?: string, relations?: Array<string>, fields?: Array<string> }): Promise<{}>;
+
         removeSiteMember(siteld?: string, personld?: string): Promise<{}>;
+
         updateSiteMember(siteld?: string, personld?: string, siteMemberRoleBody?: SiteMemberRoleBody): Promise<{}>;
     }
 
@@ -522,24 +603,43 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): PeopleApi;
 
         addFavorite(personld?: string, favoriteBody?: FavoriteBody): Promise<FavoriteEntry>;
+
         addSiteMembershipRequest(personld?: string, siteMembershipBody?: SiteMembershipRequestBody): Promise<SiteMembershipRequestEntry>;
+
         deleteFavoriteSite(personld?: string, siteld?: string): Promise<{}>;
+
         favoriteSite(personld?: string, favoriteSiteBody?: FavoriteSiteBody): Promise<FavoriteEntry>;
+
         getActivities(personld?: string, opts?: { skipCount?: number, maxltems?: number, who?: string, siteld?: string, fields?: Array<string> }): Promise<ActivityPaging>;
+
         getFavorite(personld?: string, favoriteld?: string, opts?: { fields?: Array<string> }): Promise<FavoriteEntry>;
+
         getFavoriteSite(personld?: string, siteld?: string, opts?: { fields?: Array<string> }): Promise<SiteEntry>;
+
         getFavoriteSites(personld?: string, opts?: { skipCount?: number, maxltems?: number, fields?: Array<string> }): Promise<SitePaging>;
+
         getFavorites(personld?: string, opts?: { skipCount?: number, maxltems?: number, where?: string, fields?: Array<string> }): Promise<FavoritePaging>;
+
         getPerson(personld?: string, opts?: { fields?: Array<string> }): Promise<PersonEntry>;
+
         getPersonNetwork(personld?: string, networkld?: string, opts?: { fields?: Array<string> }): Promise<PersonNetworkEntry>;
+
         getPersonNetworks(personld?: string, opts?: { skipCount?: number, maxltems?: number, fields?: Array<string> }): Promise<PersonNetworkPaging>;
+
         getPreference(personld?: string, preferenceName?: string, opts?: { fields?: Array<string> }): Promise<PreferenceEntry>;
+
         getPreferences(personld?: string, opts?: { skipCount?: number, maxltems?: number, fields?: Array<string> }): Promise<PreferencePaging>;
+
         getSiteMembership(personld?: string, opts?: { skipCount?: number, maxltems?: number, orderBy?: string, relations?: Array<string>, fields?: Array<string> }): Promise<SiteMembershipRequestEntry>;
+
         getSiteMembershipRequest(personld?: string, siteld?: string, opts?: { fields?: Array<string> }): Promise<SiteMembershipRequestEntry>;
+
         getSiteMembershipRequests(personld?: string, opts?: { skipCount?: number, maxltems?: number, fields?: Array<string> }): Promise<SiteMembershipRequestPaging>;
+
         removeFavoriteSite(personld?: string, favoriteld?: string): Promise<{}>;
+
         removeSiteMembershipRequest(personld?: string, siteld?: string): Promise<{}>;
+
         updateSiteMembershipRequest(personld?: string, siteld?: string, siteMembershipBody?: SiteMembershipRequestBody): Promise<{}>;
     }
 
@@ -548,11 +648,19 @@ declare namespace AlfrescoApi {
     //     getPreferences(personId?: string, opts?: any): Promise<PreferencePaging>;
     // }
 
+    export interface ProcessesApi {
+        new(client: ApiClient): ProcessesApi;
+
+        getProcesses(): Promise<ProcessPaging>;
+    }
+
     export interface QueriesApi {
         new(client: ApiClient): QueriesApi;
 
         findNodes(term?: string, opts?: any): Promise<NodePaging>;
+
         findPeople(term?: string, opts?: any): Promise<PersonPaging>;
+
         findSites(term?: string, opts?: any): Promise<SitePaging>;
     }
 
@@ -560,10 +668,15 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): RenditionsApi;
 
         createRendition(nodeId?: string, renditionBody?: RenditionBody): Promise<{}>;
+
         getRendition(nodeId?: string, renditionId?: string): Promise<RenditionEntry>;
+
         getRenditionContent(nodeId?: string, renditionId?: string, opts?: any): Promise<{}>;
+
         getRenditions(nodeId?: string): Promise<RenditionPaging>;
+
         getSharedLinkRendition(sharedId?: string): Promise<RenditionEntry>;
+
         getSharedLinkRenditionContent(sharedId?: string, renditionId?: string, opts?: any): Promise<{}>;
     }
 
@@ -571,8 +684,11 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): RatingsApi;
 
         rate(nodeId?: string, ratingBody?: RatingBody, opts?: any): Promise<RatingEntry>;
+
         removeRating(nodeId?: string, ratingId?: string): Promise<{}>;
+
         getRating(nodeId?: string, ratingId?: string, opts?: any): Promise<RatingEntry>;
+
         getRatings(nodeId?: string, opts?: any): Promise<RatingPaging>;
     }
 
@@ -580,10 +696,15 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): SharedlinksApi;
 
         addSharedLink(sharedLinkBody?: SharedLinkBody, opts?: any): Promise<SharedLinkEntry>;
+
         deleteSharedLink(sharedId?: string): Promise<{}>;
+
         emailSharedLink(sharedId?: string, emailSharedLinkBody?: EmailSharedLinkBody, opts?: any): Promise<{}>;
+
         findSharedLinks(opts?: any): Promise<SharedLinkPaging>;
+
         getSharedLink(sharedId?: string, opts?: any): Promise<SharedLinkEntry>;
+
         getSharedLinkContent(sharedId?: string, opts?: any): Promise<{}>;
     }
 
@@ -591,7 +712,9 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): DownloadsApi;
 
         createDownload(payload: DownloadBodyCreate, opts?: any): Promise<DownloadEntry>;
+
         getDownload(downloadId: string, opts?: any): Promise<DownloadEntry>;
+
         cancelDownload(downloadId: string): Promise<void>;
     }
 
@@ -616,10 +739,15 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): TagsApi;
 
         addTag(nodeId?: string, tagBody?: TagBody): Promise<TagEntry>;
+
         removeTag(nodeId?: string, tagId?: string): Promise<{}>;
+
         getTag(tagId?: string, fields?: Array<string>, opts?: any): Promise<TagEntry>;
+
         getNodeTags(nodeId?: string, opts?: any): Promise<TagPaging>;
+
         getTags(opts?: any): Promise<TagPaging>;
+
         updateTag(tagId?: string, tagBody?: TagBody): Promise<TagEntry>;
     }
 
@@ -903,6 +1031,7 @@ declare namespace AlfrescoApi {
             ALLOW_OWNER_CHANGES,
             FULL
         }
+
         enum LifetimeEnum {
             PERSISTENT,
             EPHEMERAL
@@ -1125,6 +1254,32 @@ declare namespace AlfrescoApi {
         pagination?: Pagination;
     }
 
+    export interface Process {
+        id?: string;
+        processDefinitionId?: string;
+        businessKey?: string;
+        startedAt?: Date;
+        endedAt?: Date;
+        durationInMs?: number;
+        startActivityDefinitionId?: string;
+        endActivityDefinitionId?: string;
+        startUserId?: string;
+        deleteReason?: string;
+    }
+
+    export interface ProcessEntry {
+        entry?: Process;
+    }
+
+    export interface ProcessPaging {
+        list?: ProcessPagingList;
+    }
+
+    export interface ProcessPagingList {
+        entries?: Array<ProcessEntry>;
+        pagination?: Pagination;
+    }
+
     export interface Rating {
         id?: string;
         aggregate?: RatingAggregate;
@@ -1250,6 +1405,7 @@ declare namespace AlfrescoApi {
             MODERATED,
             PUBLIC
         }
+
         enum RoleEnum {
             SiteConsumer,
             SiteCollaborator,
@@ -1551,6 +1707,7 @@ declare namespace AlfrescoApi {
 
     export interface Activiti {
         new(config: any): Activiti;
+
         aboutApi: any;
         adminEndpointsApi: any;
         adminGroupsApi: any;
@@ -1690,6 +1847,7 @@ declare namespace AlfrescoApi {
         networksApi: NetworksApi;
         nodesApi: NodesApi;
         peopleApi: PeopleApi;
+        processesApi: ProcessesApi;
         ratingsApi: RatingsApi;
         renditionsApi: RenditionsApi;
         searchApi: any;
@@ -1770,6 +1928,10 @@ declare namespace AlfrescoApi {
         PreferenceEntry: PreferenceEntry;
         PreferencePaging: PreferencePaging;
         PreferencePagingList: PreferencePagingList;
+        Process: Process;
+        ProcessEntry: ProcessEntry;
+        ProcessPaging: ProcessPaging;
+        ProcessPagingList: ProcessPagingList;
         Rating: Rating;
         RatingAggregate: RatingAggregate;
         RatingBody: RatingBody;
@@ -1814,25 +1976,45 @@ declare namespace AlfrescoApi {
 
     export interface CustomModelApi {
         createCustomModel(status: string, description: string, name: string, namespaceUri: string, namespacePrefix: string): Promise<{}>;
+
         createCustomType(modelName: string, name: string, parentName: string, title, description: string): Promise<{}>;
+
         createCustomAspect(modelName: string, name: string, parentName: string, title, description: string): Promise<{}>;
+
         createCustomConstraint(modelName: string, name: string, type: string, parameters: any): Promise<{}>;
+
         activateCustomModel(modelName: string): Promise<{}>;
+
         deactivateCustomModel(modelName: string): Promise<{}>;
+
         addPropertyToAspect(modelName: string, aspectName: string, properties: any): Promise<{}>;
+
         addPropertyToType(modelName: string, updateCustomModel, properties: any): Promise<{}>;
+
         updateCustomModel(modelName: string, description: string, namespaceUri: string, namespacePrefix: string): Promise<{}>;
+
         updateCustomType(modelName: string, typeName: string, description: string, parentName: string, title: string): Promise<{}>;
+
         updateCustomAspect(modelName: string, aspectName: string, description: string, parentName: string, title: string): Promise<{}>;
+
         getAllCustomModel(): Promise<{}>;
+
         getCustomModel(modelName: string, queryParams: any): Promise<{}>;
+
         getAllCustomType(modelName: string): Promise<{}>;
+
         getCustomType(modelName: string, typeName: string, queryParams: any): Promise<{}>;
+
         getAllCustomAspect(modelName: string): Promise<{}>;
+
         getCustomAspect(modelName: string, aspectName: string, queryParams: any): Promise<{}>;
+
         getAllCustomConstraints(modelName: string): Promise<{}>;
+
         getCustomConstraints(modelName: string, constraintName: string, queryParams: any): Promise<{}>;
+
         deleteCustomModel(modelName: string): Promise<{}>;
+
         deleteCustomType(modelName: string, typeName: string): Promise<{}>;
     }
 
@@ -1860,8 +2042,11 @@ declare namespace AlfrescoApi {
         new(ecmAuth: any): ContentApi;
 
         getDocumentThumbnailUrl(nodeId: string, attachment?: boolean, ticket?: string): string;
+
         getDocumentPreviewUrl(nodeId: string, attachment?: boolean, ticket?: string): string;
+
         getContentUrl(nodeId: string, attachment?: boolean, ticket?: string): string;
+
         getRenditionUrl(nodeId: string, encoding: string, attachment?: boolean, ticket?: string): string;
     }
 
@@ -1869,11 +2054,17 @@ declare namespace AlfrescoApi {
         new(config: AlfrescoApiConfig): AuthApi;
 
         changeHost(host: string): void;
+
         login(username: string, password: string): Promise<string>;
+
         logout(): Promise<string>;
+
         setTicket(ticket: string): void;
+
         getTicket(): string;
+
         isLoggedIn(): boolean;
+
         getClient(): any;
 
         username: string;
@@ -1884,6 +2075,7 @@ declare namespace AlfrescoApi {
         new(config: AlfrescoApiConfig): UploadApi;
 
         uploadFile(fileDefinition?: any, relativePath?: any, nodeId?: any, nodeBody?: any, opts?: any): any;
+
         addNodeUpload(nodeId?: any, nodeBody?: any, opts?: any, formParams?: any): any;
     }
 
