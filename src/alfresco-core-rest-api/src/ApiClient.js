@@ -339,6 +339,9 @@
       returnType) {
 
     var _this = this;
+
+    console.log("path");
+
     var url = this.buildUrl(path, pathParams);
 
     console.log("url", url);

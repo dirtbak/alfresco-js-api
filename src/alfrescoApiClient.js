@@ -33,7 +33,7 @@ class AlfrescoApiClient extends ApiClient {
      *                                  It also lets the author change the response type to one "arraybuffer", "blob", "document",
      *                                  "json", or "text".
      *                                   If an empty string is set as the value of responseType, it is assumed as type "text".
-     * contructor for a complex type.   * @returns {Promise} A Promise object.
+     * constructor for a complex type.   * @returns {Promise} A Promise object.
      */
     callApi(path, httpMethod, pathParams, queryParams, headerParams, formParams, bodyParam, authNames,
             contentTypes, accepts, returnType, contextRoot, responseType) {
@@ -49,8 +49,6 @@ class AlfrescoApiClient extends ApiClient {
         } else {
             url = this.buildUrl(path, pathParams);
         }
-
-        console.log("url", url);
 
         var request = this.buildRequest(httpMethod, url, queryParams, headerParams, formParams, bodyParam,
             contentTypes, accepts, responseType, eventEmitter);
