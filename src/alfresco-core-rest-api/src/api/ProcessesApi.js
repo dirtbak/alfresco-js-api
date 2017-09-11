@@ -42,7 +42,7 @@
       var returnType = ProcessPaging;
 
       return this.apiClient.callApi(
-        '/tasks', 'GET',
+        '../../../workflow/versions/1/tasks', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
