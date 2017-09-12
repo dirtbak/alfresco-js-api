@@ -651,7 +651,7 @@ declare namespace AlfrescoApi {
     export interface ProcessesApi {
         new(client: ApiClient): ProcessesApi;
 
-        getProcesses(): Promise<ProcessPaging>;
+        getProcesses(opts?: any): Promise<ProcessPaging>;
     }
 
     export interface QueriesApi {
