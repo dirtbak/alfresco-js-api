@@ -18,6 +18,7 @@
   'use strict';
 
   var exports = function (apiClient) {
+
     this.apiClient = apiClient || ApiClient.instance;
 
     this.getProcesses = function (opts) {
@@ -48,7 +49,7 @@
       );
     }
 
-    this.addProcess = function(processBody, opts) {
+    this.addProcess = function (processBody, opts) {
       opts = opts || {};
       var postBody = processBody;
 
@@ -57,15 +58,10 @@
         throw "Missing the required parameter 'processBody' when calling createProcess";
       }
 
-
-      var pathParams = {
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var pathParams = {};
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -78,6 +74,35 @@
         authNames, contentTypes, accepts, returnType
       );
     }
+
+    this.deleteProcess = function (processId, opts) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'processId' is set
+      if (processId == undefined || processId == null) {
+        throw "Missing the required parameter 'processId' when calling deleteProcess";
+      }
+
+      var pathParams = {
+        'processId': processId
+      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '../../../workflow/versions/1/processes/{processId}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
   }
 
   return exports;
