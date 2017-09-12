@@ -754,7 +754,7 @@ declare namespace AlfrescoApi {
     export interface TasksApi {
         new(client: ApiClient): TasksApi;
 
-        getTasks(): Promise<TaskPaging>;
+        getTasks(opts?: any): Promise<TaskPaging>;
     }
 
     export interface WebscriptApi {
