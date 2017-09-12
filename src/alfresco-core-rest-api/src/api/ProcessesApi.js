@@ -47,6 +47,37 @@
         authNames, contentTypes, accepts, returnType
       );
     }
+
+    this.addProcess = function(processBody, opts) {
+      opts = opts || {};
+      var postBody = processBody;
+
+      // verify the required parameter 'processBody' is set
+      if (processBody == undefined || processBody == null) {
+        throw "Missing the required parameter 'processBody' when calling createProcess";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = ProcessEntry;
+
+      return this.apiClient.callApi(
+        '../../../workflow/versions/1/processes', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
   }
 
   return exports;
