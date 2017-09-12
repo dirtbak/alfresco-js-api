@@ -103,6 +103,36 @@
       );
     }
 
+    this.getProcess = function (processId, opts) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'processId' is set
+      if (processId == undefined || processId == null) {
+        throw "Missing the required parameter 'processId' when calling getProcess";
+      }
+
+      var pathParams = {
+        'processId': processId
+      };
+      var queryParams = {
+        'properties': this.apiClient.buildCollectionParam(opts['properties'], 'csv')
+      };
+      var headerParams = {};
+      var formParams = {};
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = ProcessEntry;
+
+      return this.apiClient.callApi(
+        '../../../workflow/versions/1/processes/{processId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
   }
 
   return exports;
