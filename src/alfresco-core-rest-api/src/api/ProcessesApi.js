@@ -133,6 +133,40 @@
       );
     }
 
+    /*this.addItem = function (processId, itemBody, opts) {
+      opts = opts || {};
+
+      var postBody = itemBody;
+
+      // verify the required parameter 'processId' is set
+      if (processId == undefined || processId == null) {
+        throw "Missing the required parameter 'processId' when calling addItem";
+      }
+
+      // verify the required parameter 'itemBody' is set
+      if (itemBody == undefined || itemBody == null) {
+        throw "Missing the required parameter 'itemBody' when calling addItem";
+      }
+
+      var pathParams = {
+        'processId': processId
+      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = ItemEntry;
+
+      return this.apiClient.callApi(
+        '../../../workflow/versions/1/processes/{processId}/items', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }*/
+
   }
 
   return exports;
