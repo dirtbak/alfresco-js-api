@@ -54,7 +54,7 @@
         obj['modifiedAt'] = ApiClient.convertToType(data['modifiedAt'], 'String');
       }
       if (data.hasOwnProperty('size')) {
-        obj['size'] = ApiClient.convertToType(data['size'], 'Boolean');
+        obj['size'] = ApiClient.convertToType(data['size'], 'Integer');
       }
     }
     return obj;

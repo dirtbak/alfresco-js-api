@@ -972,6 +972,34 @@ declare namespace AlfrescoApi {
         entry?: FavoriteSite;
     }
 
+    export interface Item {
+        id?: string;
+        name?: string;
+        value?: number;
+        title?: string;
+        description?: string;
+        mimeType?: string;
+        createdBy?: Person;
+        createdAt?: string;
+        edited?: boolean;
+        modifiedBy?: Person;
+        modifiedAt?: string;
+        size?: number;
+    }
+
+    export interface ItemEntry {
+        entry?: Item;
+    }
+
+    export interface ItemPaging {
+        list?: ItemPagingList;
+    }
+
+    export interface ItemPagingList {
+        entries?: Array<ItemEntry>;
+        pagination?: Pagination;
+    }
+
     export interface NetworkQuota {
         id?: string;
         limit?: number;
@@ -1662,6 +1690,26 @@ declare namespace AlfrescoApi {
         id?: string;
     }
 
+    export interface Variable {
+        scope?: string;
+        name?: string;
+        value?: number;
+        type?: string;
+    }
+
+    export interface VariableEntry {
+        entry?: Variable;
+    }
+
+    export interface VariablePaging {
+        list?: VariablePagingList;
+    }
+
+    export interface VariablePagingList {
+        entries?: Array<VariableEntry>;
+        pagination?: Pagination;
+    }
+
     export interface Version {
         id?: string;
         versionComment?: string;
@@ -1893,6 +1941,10 @@ declare namespace AlfrescoApi {
         FavoriteSiteBody: FavoriteSiteBody;
         InlineResponse201: any;
         InlineResponse201Entry: any;
+        Item: Item;
+        ItemEntry: ItemEntry;
+        ItemPaging: ItemPaging;
+        ItemPagingList: ItemPagingList;
         MoveBody: MoveBody;
         NetworkQuota: NetworkQuota;
         NodeAssocMinimal: any;
@@ -1972,6 +2024,10 @@ declare namespace AlfrescoApi {
         TaskPaging: TaskPaging;
         TaskPagingList: TaskPagingList;
         UserInfo: UserInfo;
+        Variable: Variable;
+        VariableEntry: VariableEntry;
+        VariablePaging: VariablePaging;
+        VariablePagingList: VariablePagingList;
     }
 
     export interface CustomModelApi {
