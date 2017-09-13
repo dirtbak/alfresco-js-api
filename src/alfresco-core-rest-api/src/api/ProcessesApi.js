@@ -62,8 +62,7 @@
       );
     }
 
-    this.addProcess = function (processBody, opts) {
-      opts = opts || {};
+    this.addProcess = function (processBody) {
       var postBody = processBody;
 
       // verify the required parameter 'processBody' is set
@@ -88,8 +87,7 @@
       );
     }
 
-    this.deleteProcess = function (processId, opts) {
-      opts = opts || {};
+    this.deleteProcess = function (processId) {
       var postBody = null;
 
       // verify the required parameter 'processId' is set
@@ -146,9 +144,7 @@
       );
     }
 
-    this.addItem = function (processId, itemBody, opts) {
-      opts = opts || {};
-
+    this.addItem = function (processId, itemBody) {
       var postBody = itemBody;
 
       // verify the required parameter 'processId' is set
@@ -212,8 +208,7 @@
       );
     }
 
-    this.deleteItem = function (processId, itemId, opts) {
-      opts = opts || {};
+    this.deleteItem = function (processId, itemId) {
       var postBody = null;
 
       // verify the required parameter 'processId' is set
@@ -277,9 +272,7 @@
       );
     }
 
-    this.addVariable = function (processId, variableBody, opts) {
-      opts = opts || {};
-
+    this.addVariable = function (processId, variableBody) {
       var postBody = variableBody;
 
       // verify the required parameter 'processId' is set
@@ -311,8 +304,7 @@
       );
     }
 
-    this.deleteVariable = function (processId, variableName, opts) {
-      opts = opts || {};
+    this.deleteVariable = function (processId, variableName) {
       var postBody = null;
 
       // verify the required parameter 'processId' is set
@@ -344,8 +336,7 @@
       );
     }
 
-    this.updateVariable = function (processId, variableName, variableBody, opts) {
-      opts = opts || {};
+    this.updateVariable = function (processId, variableName, variableBody) {
       var postBody = variableBody;
 
       // verify the required parameter 'processId' is set

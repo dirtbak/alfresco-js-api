@@ -652,6 +652,27 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): ProcessesApi;
 
         getProcesses(opts?: any): Promise<ProcessPaging>;
+
+        addProcess(processBody?: ProcessBody): Promise<ProcessEntry>;
+
+        deleteProcess(processId?: string): Promise<{}>;
+
+        getProcess(processId?: string, opts?: any): Promise<ProcessEntry>;
+
+        addItem(processId?: string, itemBody?: ItemBody): Promise<ItemEntry>;
+
+        getItems(processId?: string, opts?: any): Promise<ItemPaging>;
+
+        deleteItem(processId?: string, itemId?: string): Promise<{}>;
+
+        getVariables(processId?: string, opts?: any): Promise<VariablePaging>;
+
+        addVariable(processId?: string, variableBody?: VariableBody): Promise<VariableEntry>;
+
+        deleteVariable(processId?: string, variableName?: string): Promise<{}>;
+
+        updateVariable(processId?: string, variableName?: string, variableBody?: VariableBody): Promise<VariableEntry>;
+
     }
 
     export interface QueriesApi {
