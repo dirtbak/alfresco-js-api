@@ -13,7 +13,7 @@
   'use strict';
 
   var exports = function () {
-    var _this = this;
+
   };
 
   exports.constructFromObject = function (data, obj) {
@@ -57,7 +57,7 @@
       }
 
       if (data.hasOwnProperty('deleteReason')) {
-        obj['deleteReason'] = ApiClient.convertToType(data['deleteReason'], 'String');
+        obj['endActivityDefinitionId'] = ApiClient.convertToType(data['endActivityDefinitionId'], 'String');
       }
 
     }

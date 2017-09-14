@@ -13,7 +13,7 @@
   'use strict';
 
   var exports = function () {
-    var _this = this;
+
   };
 
   exports.constructFromObject = function (data, obj) {

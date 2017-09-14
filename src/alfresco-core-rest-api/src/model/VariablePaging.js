@@ -12,7 +12,7 @@
     }
     root.AlfrescoCoreRestApi.VariablePaging = factory(root.AlfrescoCoreRestApi.ApiClient, root.AlfrescoCoreRestApi.VariablePagingList);
   }
-}(this, function (ApiClient, VariablePaging) {
+}(this, function (ApiClient, VariablePagingList) {
   'use strict';
 
   /**
@@ -27,7 +27,6 @@
    * @class
    */
   var exports = function () {
-
 
   };
 

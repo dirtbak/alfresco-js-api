@@ -29,7 +29,6 @@
    * @param pagination
    */
   var exports = function (entries, pagination) {
-
     this['entries'] = entries;
     this['pagination'] = pagination;
   };

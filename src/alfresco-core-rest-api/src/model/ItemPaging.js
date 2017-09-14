@@ -12,7 +12,7 @@
     }
     root.AlfrescoCoreRestApi.ItemPaging = factory(root.AlfrescoCoreRestApi.ApiClient, root.AlfrescoCoreRestApi.ItemPagingList);
   }
-}(this, function (ApiClient, ItemPaging) {
+}(this, function (ApiClient, ItemPagingList) {
   'use strict';
 
   /**

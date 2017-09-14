@@ -12,7 +12,7 @@
     }
     root.AlfrescoCoreRestApi.TaskPaging = factory(root.AlfrescoCoreRestApi.ApiClient, root.AlfrescoCoreRestApi.TaskPagingList);
   }
-}(this, function(ApiClient, TaskPaging) {
+}(this, function(ApiClient, TaskPagingList) {
   'use strict';
 
   /**
@@ -54,9 +54,6 @@
    * @member {module:model/TaskPagingList} list
    */
   exports.prototype['list'] = undefined;
-
-
-
 
   return exports;
 }));

@@ -672,7 +672,6 @@ declare namespace AlfrescoApi {
         deleteVariable(processId?: string, variableName?: string): Promise<{}>;
 
         updateVariable(processId?: string, variableName?: string, variableBody?: VariableBody): Promise<VariableEntry>;
-
     }
 
     export interface QueriesApi {
@@ -1008,6 +1007,10 @@ declare namespace AlfrescoApi {
         size?: number;
     }
 
+    export interface ItemBody {
+        id?: string;
+    }
+
     export interface ItemEntry {
         entry?: Item;
     }
@@ -1026,7 +1029,6 @@ declare namespace AlfrescoApi {
         limit?: number;
         usage?: number;
     }
-
 
     export interface NodeAssociation extends Node {
         association?: AssociationInfo;
@@ -1314,6 +1316,17 @@ declare namespace AlfrescoApi {
         endActivityDefinitionId?: string;
         startUserId?: string;
         deleteReason?: string;
+    }
+
+    export interface ProcessBody {
+        processDefinitionKey?: string;
+        variables?: ProcessBodyVariable;
+    }
+
+    export interface ProcessBodyVariable {
+        bpm_assignee?: string;
+        bpm_sendEMailNotifications?: boolean;
+        bpm_workflowPriority?: number;
     }
 
     export interface ProcessEntry {
@@ -1718,6 +1731,12 @@ declare namespace AlfrescoApi {
         type?: string;
     }
 
+    export interface VariableBody {
+        name?: string;
+        value?: number;
+        type?: string;
+    }
+
     export interface VariableEntry {
         entry?: Variable;
     }
@@ -1963,6 +1982,7 @@ declare namespace AlfrescoApi {
         InlineResponse201: any;
         InlineResponse201Entry: any;
         Item: Item;
+        ItemBody: ItemBody;
         ItemEntry: ItemEntry;
         ItemPaging: ItemPaging;
         ItemPagingList: ItemPagingList;
@@ -2002,6 +2022,8 @@ declare namespace AlfrescoApi {
         PreferencePaging: PreferencePaging;
         PreferencePagingList: PreferencePagingList;
         Process: Process;
+        ProcessBody: ProcessBody;
+        ProcessBodyVariable: ProcessBodyVariable;
         ProcessEntry: ProcessEntry;
         ProcessPaging: ProcessPaging;
         ProcessPagingList: ProcessPagingList;
@@ -2046,6 +2068,7 @@ declare namespace AlfrescoApi {
         TaskPagingList: TaskPagingList;
         UserInfo: UserInfo;
         Variable: Variable;
+        VariableBody: VariableBody;
         VariableEntry: VariableEntry;
         VariablePaging: VariablePaging;
         VariablePagingList: VariablePagingList;

@@ -12,7 +12,7 @@
     }
     root.AlfrescoCoreRestApi.ProcessPaging = factory(root.AlfrescoCoreRestApi.ApiClient, root.AlfrescoCoreRestApi.ProcessPagingList);
   }
-}(this, function (ApiClient, ProcessPaging) {
+}(this, function (ApiClient, ProcessPagingList) {
   'use strict';
 
   /**
@@ -27,7 +27,6 @@
    * @class
    */
   var exports = function () {
-
 
   };
 
