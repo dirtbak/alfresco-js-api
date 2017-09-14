@@ -775,6 +775,30 @@ declare namespace AlfrescoApi {
         new(client: ApiClient): TasksApi;
 
         getTasks(opts?: any): Promise<TaskPaging>;
+
+        getTasksForProcess(processId?: string, opts?: any): Promise<TaskPaging>;
+
+        getTask(taskId?: string, opts?: any): Promise<TaskEntry>;
+
+        updateTask(taskId?: string, taskBody?: TaskBody, opts?: any): Promise<TaskEntry>;
+
+        getCandidates(taskId?: string, opts?: any): Promise<CandidatePaging>;
+
+        getItems(taskId?: string, opts?: any): Promise<ItemPaging>;
+
+        addItem(taskId?: string, opts?: any): Promise<ItemEntry>;
+
+        deleteItem(taskId?: string, itemId?: string): Promise<{}>;
+
+        getTaskFormModel(taskId?: string, opts?: any): Promise<TaskFormModelPaging>;
+
+        getVariables(taskId?: string, opts?: any): Promise<VariablePaging>;
+
+        addVariable(taskId?: string, variableBody?: VariableBody): Promise<VariableEntry>;
+
+        deleteVariable(taskId?: string, variableName?: string): Promise<{}>;
+
+        updateVariable(taskId?: string, variableName?: string, variableBody?: VariableBody): Promise<VariableEntry>;
     }
 
     export interface WebscriptApi {
@@ -853,6 +877,24 @@ declare namespace AlfrescoApi {
 
     export interface AssociationInfo {
         assocType?: string;
+    }
+
+    export interface Candidate {
+        candidateType?: string;
+        candidateId?: string;
+    }
+
+    export interface CandidateEntry {
+        entry?: Candidate;
+    }
+
+    export interface CandidatePaging {
+        list?: CandidatePagingList;
+    }
+
+    export interface CandidatePagingList {
+        entries?: Array<CandidateEntry>;
+        pagination?: Pagination;
     }
 
     export interface ChildAssociation {
@@ -1695,15 +1737,26 @@ declare namespace AlfrescoApi {
         activityDefinitionId?: string;
         name?: string;
         description?: string;
-        dueAt?: Date;
-        startedAt?: Date;
-        endedAt?: Date;
+        dueAt?: string;
+        startedAt?: string;
+        endedAt?: string;
         durationInMs?: number;
         priority?: number;
         owner?: string;
         assignee?: string;
         formResourceKey?: string;
         state?: string;
+        variables?: Array<Variable>;
+    }
+
+    export interface TaskBody {
+        name?: string;
+        description?: string;
+        dueAt?: string;
+        priority?: number;
+        owner?: string;
+        state?: string;
+        variables?: Array<Variable>;
     }
 
     export interface TaskEntry {
@@ -1716,6 +1769,29 @@ declare namespace AlfrescoApi {
 
     export interface TaskPagingList {
         entries?: Array<TaskEntry>;
+        pagination?: Pagination;
+    }
+
+    export interface TaskFormModel {
+        dataType?: string;
+        title?: string;
+        qualifiedName?: string;
+        name?: string;
+        required?: boolean;
+        defaultValue?: string;
+        allowedValues?: Array<string>;
+    }
+
+    export interface TaskFormModelEntry {
+        entry?: TaskFormModel;
+    }
+
+    export interface TaskFormModelPaging {
+        list?: TaskFormModelPagingList;
+    }
+
+    export interface TaskPagingList {
+        entries?: Array<TaskFormModelEntry>;
         pagination?: Pagination;
     }
 
@@ -1955,6 +2031,10 @@ declare namespace AlfrescoApi {
         AssocChildBody: AssocChildBody;
         AssocInfo: any;
         AssocTargetBody: AssocTargetBody;
+        Candidate: Candidate,
+        CandidateEntry: CandidateEntry,
+        CandidatePaging: CandidatePaging,
+        CandidatePagingList: CandidatePagingList,
         ChildAssocInfo: any;
         Comment: Comment;
         CommentBody: CommentBody;
@@ -2063,9 +2143,14 @@ declare namespace AlfrescoApi {
         TagPaging: TagPaging;
         TagPagingList: TagPagingList;
         Task: Task;
+        TaskBody: TaskBody;
         TaskEntry: TaskEntry;
         TaskPaging: TaskPaging;
         TaskPagingList: TaskPagingList;
+        TaskFormModel: TaskFormModel;
+        TaskFormModelEntry: TaskFormModelEntry;
+        TaskFormModelPaging: TaskFormModelPaging;
+        TaskFormModelPagingList: TaskFormModelPagingList;
         UserInfo: UserInfo;
         Variable: Variable;
         VariableBody: VariableBody;
