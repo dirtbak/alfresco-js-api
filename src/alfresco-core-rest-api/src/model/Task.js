@@ -92,4 +92,7 @@
   exports.prototype['formResourceKey'] = undefined;
   exports.prototype['state'] = undefined;
   exports.prototype['variables'] = undefined;
+
+  return exports;
+
 }));

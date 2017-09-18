@@ -75,4 +75,6 @@
   exports.prototype['startUserId'] = undefined;
   exports.prototype['deleteReason'] = undefined;
 
+  return exports;
+
 }));

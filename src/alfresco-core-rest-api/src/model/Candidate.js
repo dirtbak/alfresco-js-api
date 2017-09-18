@@ -33,4 +33,5 @@
   exports.prototype['candidateType'] = undefined;
   exports.prototype['candidateId'] = undefined;
 
+  return exports;
 }));

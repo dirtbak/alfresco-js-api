@@ -41,4 +41,5 @@
   exports.prototype['value'] = undefined;
   exports.prototype['type'] = undefined;
 
+  return exports;
 }));

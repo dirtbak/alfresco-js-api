@@ -53,4 +53,5 @@
   exports.prototype['defaultValue'] = undefined;
   exports.prototype['allowedValues'] = undefined;
 
+  return exports;
 }));

@@ -61,4 +61,6 @@
   exports.prototype['startFormResourceKey'] = undefined;
   exports.prototype['graphicNotationDefined'] = undefined;
 
+  return exports;
+
 }));

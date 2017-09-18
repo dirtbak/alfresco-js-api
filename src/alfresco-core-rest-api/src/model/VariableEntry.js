@@ -46,6 +46,4 @@
   exports.prototype['entry'] = undefined;
 
   return exports;
-
-
 }));
