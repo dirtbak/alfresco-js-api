@@ -73,4 +73,6 @@
   exports.prototype['modifiedAt'] = undefined;
   exports.prototype['size'] = undefined;
 
+  return exports;
+
 }));
