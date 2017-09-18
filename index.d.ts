@@ -674,6 +674,16 @@ declare namespace AlfrescoApi {
         updateVariable(processId?: string, variableName?: string, variableBody?: VariableBody): Promise<VariableEntry>;
     }
 
+    export interface ProcessDefinitionsApi {
+        new(client: ApiClient): ProcessDefinitionsApi;
+
+        getProcessDefinitions(opts?: any): Promise<ProcessDefinitionPaging>;
+
+        getProcessDefinition(processDefinitionId?: string, opts?: any): Promise<ProcessDefinitionEntry>;
+
+        getStartFormModel(processDefinitionId?: string, opts?: any): Promise<TaskFormModelPaging>;
+    }
+
     export interface QueriesApi {
         new(client: ApiClient): QueriesApi;
 
@@ -1384,6 +1394,31 @@ declare namespace AlfrescoApi {
         pagination?: Pagination;
     }
 
+    export interface ProcessDefinition {
+        id?: string;
+        key?: string;
+        name?: string;
+        category?: string;
+        deploymentId?: string;
+        title?: string;
+        description?: string;
+        startFormResourceKey?: string;
+        graphicNotationDefined?: boolean;
+    }
+
+    export interface ProcessDefinitionEntry {
+        entry?: ProcessDefinition;
+    }
+
+    export interface ProcessDefinitionPaging {
+        list?: ProcessDefinitionPagingList;
+    }
+
+    export interface ProcessDefinitionPagingList {
+        entries?: Array<ProcessDefinitionEntry>;
+        pagination?: Pagination;
+    }
+
     export interface Rating {
         id?: string;
         aggregate?: RatingAggregate;
@@ -2012,6 +2047,7 @@ declare namespace AlfrescoApi {
         nodesApi: NodesApi;
         peopleApi: PeopleApi;
         processesApi: ProcessesApi;
+        processDefinitionsApi: ProcessDefinitionsApi;
         ratingsApi: RatingsApi;
         renditionsApi: RenditionsApi;
         searchApi: any;
@@ -2107,6 +2143,10 @@ declare namespace AlfrescoApi {
         ProcessEntry: ProcessEntry;
         ProcessPaging: ProcessPaging;
         ProcessPagingList: ProcessPagingList;
+        ProcessDefinition: ProcessDefinition;
+        ProcessDefinitionEntry: ProcessDefinitionEntry;
+        ProcessDefinitionPaging: ProcessDefinitionPaging;
+        ProcessDefinitionPagingList: ProcessDefinitionPagingList;
         Rating: Rating;
         RatingAggregate: RatingAggregate;
         RatingBody: RatingBody;
