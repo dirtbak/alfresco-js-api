@@ -620,6 +620,8 @@ declare namespace AlfrescoApi {
 
         getFavorites(personld?: string, opts?: { skipCount?: number, maxltems?: number, where?: string, fields?: Array<string> }): Promise<FavoritePaging>;
 
+        getPersons(opts?: any): Promise<PersonPaging>;
+
         getPerson(personld?: string, opts?: { fields?: Array<string> }): Promise<PersonEntry>;
 
         getPersonNetwork(personld?: string, networkld?: string, opts?: { fields?: Array<string> }): Promise<PersonNetworkEntry>;

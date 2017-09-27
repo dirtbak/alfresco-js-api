@@ -1,18 +1,18 @@
-(function(root, factory) {
+(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['../ApiClient', '../model/FavoriteEntry', '../model/FavoriteBody', '../model/Error', '../model/SiteMembershipBody', '../model/SiteMembershipRequestEntry', '../model/FavoriteSiteBody', '../model/InlineResponse201', '../model/ActivityPaging', '../model/SiteEntry', '../model/SitePaging', '../model/FavoritePaging', '../model/PersonEntry', '../model/PersonNetworkEntry', '../model/PersonNetworkPaging', '../model/PreferenceEntry', '../model/PreferencePaging', '../model/SiteMembershipRequestPaging', '../model/SiteMembershipBody1'], factory);
+    define(['../ApiClient', '../model/FavoriteEntry', '../model/FavoriteBody', '../model/Error', '../model/SiteMembershipBody', '../model/SiteMembershipRequestEntry', '../model/FavoriteSiteBody', '../model/InlineResponse201', '../model/ActivityPaging', '../model/SiteEntry', '../model/SitePaging', '../model/FavoritePaging', '../model/PersonEntry', '../model/PersonPaging', '../model/PersonNetworkEntry', '../model/PersonNetworkPaging', '../model/PreferenceEntry', '../model/PreferencePaging', '../model/SiteMembershipRequestPaging', '../model/SiteMembershipBody1'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/FavoriteEntry'), require('../model/FavoriteBody'), require('../model/Error'), require('../model/SiteMembershipBody'), require('../model/SiteMembershipRequestEntry'), require('../model/FavoriteSiteBody'), require('../model/InlineResponse201'), require('../model/ActivityPaging'), require('../model/SiteEntry'), require('../model/SitePaging'), require('../model/FavoritePaging'), require('../model/PersonEntry'), require('../model/PersonNetworkEntry'), require('../model/PersonNetworkPaging'), require('../model/PreferenceEntry'), require('../model/PreferencePaging'), require('../model/SiteMembershipRequestPaging'), require('../model/SiteMembershipBody1'));
+    module.exports = factory(require('../ApiClient'), require('../model/FavoriteEntry'), require('../model/FavoriteBody'), require('../model/Error'), require('../model/SiteMembershipBody'), require('../model/SiteMembershipRequestEntry'), require('../model/FavoriteSiteBody'), require('../model/InlineResponse201'), require('../model/ActivityPaging'), require('../model/SiteEntry'), require('../model/SitePaging'), require('../model/FavoritePaging'), require('../model/PersonEntry'), require('../model/PersonPaging'), require('../model/PersonNetworkEntry'), require('../model/PersonNetworkPaging'), require('../model/PreferenceEntry'), require('../model/PreferencePaging'), require('../model/SiteMembershipRequestPaging'), require('../model/SiteMembershipBody1'));
   } else {
     // Browser globals (root is window)
     if (!root.AlfrescoCoreRestApi) {
       root.AlfrescoCoreRestApi = {};
     }
-    root.AlfrescoCoreRestApi.PeopleApi = factory(root.AlfrescoCoreRestApi.ApiClient, root.AlfrescoCoreRestApi.FavoriteEntry, root.AlfrescoCoreRestApi.FavoriteBody, root.AlfrescoCoreRestApi.Error, root.AlfrescoCoreRestApi.SiteMembershipBody, root.AlfrescoCoreRestApi.SiteMembershipRequestEntry, root.AlfrescoCoreRestApi.FavoriteSiteBody, root.AlfrescoCoreRestApi.InlineResponse201, root.AlfrescoCoreRestApi.ActivityPaging, root.AlfrescoCoreRestApi.SiteEntry, root.AlfrescoCoreRestApi.SitePaging, root.AlfrescoCoreRestApi.FavoritePaging, root.AlfrescoCoreRestApi.PersonEntry, root.AlfrescoCoreRestApi.PersonNetworkEntry, root.AlfrescoCoreRestApi.PersonNetworkPaging, root.AlfrescoCoreRestApi.PreferenceEntry, root.AlfrescoCoreRestApi.PreferencePaging, root.AlfrescoCoreRestApi.SiteMembershipRequestPaging, root.AlfrescoCoreRestApi.SiteMembershipBody1);
+    root.AlfrescoCoreRestApi.PeopleApi = factory(root.AlfrescoCoreRestApi.ApiClient, root.AlfrescoCoreRestApi.FavoriteEntry, root.AlfrescoCoreRestApi.FavoriteBody, root.AlfrescoCoreRestApi.Error, root.AlfrescoCoreRestApi.SiteMembershipBody, root.AlfrescoCoreRestApi.SiteMembershipRequestEntry, root.AlfrescoCoreRestApi.FavoriteSiteBody, root.AlfrescoCoreRestApi.InlineResponse201, root.AlfrescoCoreRestApi.ActivityPaging, root.AlfrescoCoreRestApi.SiteEntry, root.AlfrescoCoreRestApi.SitePaging, root.AlfrescoCoreRestApi.FavoritePaging, root.AlfrescoCoreRestApi.PersonEntry, root.AlfrescoCoreRestApi.PersonPaging, root.AlfrescoCoreRestApi.PersonNetworkEntry, root.AlfrescoCoreRestApi.PersonNetworkPaging, root.AlfrescoCoreRestApi.PreferenceEntry, root.AlfrescoCoreRestApi.PreferencePaging, root.AlfrescoCoreRestApi.SiteMembershipRequestPaging, root.AlfrescoCoreRestApi.SiteMembershipBody1);
   }
-}(this, function(ApiClient, FavoriteEntry, FavoriteBody, Error, SiteMembershipBody, SiteMembershipRequestEntry, FavoriteSiteBody, InlineResponse201, ActivityPaging, SiteEntry, SitePaging, FavoritePaging, PersonEntry, PersonNetworkEntry, PersonNetworkPaging, PreferenceEntry, PreferencePaging, SiteMembershipRequestPaging, SiteMembershipBody1) {
+}(this, function (ApiClient, FavoriteEntry, FavoriteBody, Error, SiteMembershipBody, SiteMembershipRequestEntry, FavoriteSiteBody, InlineResponse201, ActivityPaging, SiteEntry, SitePaging, FavoritePaging, PersonEntry, PersonPaging, PersonNetworkEntry, PersonNetworkPaging, PreferenceEntry, PreferencePaging, SiteMembershipRequestPaging, SiteMembershipBody1) {
   'use strict';
 
   /**
@@ -22,15 +22,14 @@
    */
 
   /**
-   * Constructs a new PeopleApi.
+   * Constructs a new PeopleApi
    * @alias module:api/PeopleApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use, default to {@link module:ApiClient#instance}
    * if unspecified.
    */
-  var exports = function(apiClient) {
+  var exports = function (apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
-
 
 
     /**
@@ -40,7 +39,7 @@
      * @param {module:model/FavoriteBody} favoriteBody An object identifying the entity to be favorited. \n\nThe object consists of a single property which is an object with the name &#x60;site&#x60;, &#x60;file&#x60;, or &#x60;folder&#x60;. \nThe content of that object is the &#x60;guid&#x60; of the target entity.\n\nFor example, to favorite a file the following body would be used:\n\n&#x60;&#x60;&#x60;JSON\n{\n   \&quot;target\&quot;: {\n      \&quot;file\&quot;: {\n         \&quot;guid\&quot;: \&quot;abcde-01234\&quot;\n      }\n   }\n}\n&#x60;&#x60;&#x60;\n
      * data is of type: {module:model/FavoriteEntry}
      */
-    this.addFavorite = function(personId, favoriteBody) {
+    this.addFavorite = function (personId, favoriteBody) {
       var postBody = favoriteBody;
 
       // verify the required parameter 'personId' is set
@@ -57,12 +56,9 @@
       var pathParams = {
         'personId': personId
       };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -84,7 +80,7 @@
      * @param {module:model/SiteMembershipBody} siteMembershipBody Site membership request details
      * data is of type: {module:model/SiteMembershipRequestEntry}
      */
-    this.addSiteMembershipRequest = function(personId, siteMembershipBody) {
+    this.addSiteMembershipRequest = function (personId, siteMembershipBody) {
       var postBody = siteMembershipBody;
 
       // verify the required parameter 'personId' is set
@@ -101,12 +97,9 @@
       var pathParams = {
         'personId': personId
       };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -127,7 +120,7 @@
      * @param {String} personId The identifier of a person.
      * @param {String} siteId The identifier of a site.
      */
-    this.deleteFavoriteSite = function(personId, siteId) {
+    this.deleteFavoriteSite = function (personId, siteId) {
       var postBody = null;
 
       // verify the required parameter 'personId' is set
@@ -145,12 +138,9 @@
         'personId': personId,
         'siteId': siteId
       };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -172,7 +162,7 @@
      * @param {module:model/FavoriteSiteBody} favoriteSiteBody The id of the site to favorite.
      * data is of type: {module:model/InlineResponse201}
      */
-    this.favoriteSite = function(personId, favoriteSiteBody) {
+    this.favoriteSite = function (personId, favoriteSiteBody) {
       var postBody = favoriteSiteBody;
 
       // verify the required parameter 'personId' is set
@@ -189,12 +179,9 @@
       var pathParams = {
         'personId': personId
       };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -221,7 +208,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/ActivityPaging}
      */
-    this.getActivities = function(personId, opts) {
+    this.getActivities = function (personId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -241,10 +228,8 @@
         'siteId': opts['siteId'],
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -268,7 +253,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/FavoriteEntry}
      */
-    this.getFavorite = function(personId, favoriteId, opts) {
+    this.getFavorite = function (personId, favoriteId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -290,10 +275,8 @@
       var queryParams = {
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -317,7 +300,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/SiteEntry}
      */
-    this.getFavoriteSite = function(personId, siteId, opts) {
+    this.getFavoriteSite = function (personId, siteId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -339,10 +322,8 @@
       var queryParams = {
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -367,7 +348,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/SitePaging}
      */
-    this.getFavoriteSites = function(personId, opts) {
+    this.getFavoriteSites = function (personId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -385,10 +366,8 @@
         'maxItems': opts['maxItems'],
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -414,7 +393,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/FavoritePaging}
      */
-    this.getFavorites = function(personId, opts) {
+    this.getFavorites = function (personId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -433,10 +412,8 @@
         'where': opts['where'],
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -445,6 +422,40 @@
 
       return this.apiClient.callApi(
         '/people/{personId}/favorites', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Get list of persons
+     * @param {Object} opts Optional parameters
+     * data is of type: {module:model/PersonPaging}
+     */
+    this.getPersons = function (opts) {
+      opts = opts || {};
+      var postBody = null;
+
+      var pathParams = {};
+
+      var queryParams = {
+        'skipCount': opts['skipCount'],
+        'maxItems': opts['maxItems'],
+        'orderBy': opts['orderBy'],
+        'include': opts['include'],
+        'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
+      };
+
+      var headerParams = {};
+      var formParams = {};
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = PersonPaging;
+
+      return this.apiClient.callApi(
+        '/people', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
@@ -459,7 +470,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/PersonEntry}
      */
-    this.getPerson = function(personId, opts) {
+    this.getPerson = function (personId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -475,10 +486,8 @@
       var queryParams = {
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -502,7 +511,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/PersonNetworkEntry}
      */
-    this.getPersonNetwork = function(personId, networkId, opts) {
+    this.getPersonNetwork = function (personId, networkId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -524,10 +533,8 @@
       var queryParams = {
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -552,7 +559,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/PersonNetworkPaging}
      */
-    this.getPersonNetworks = function(personId, opts) {
+    this.getPersonNetworks = function (personId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -570,10 +577,8 @@
         'maxItems': opts['maxItems'],
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -597,7 +602,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/PreferenceEntry}
      */
-    this.getPreference = function(personId, preferenceName, opts) {
+    this.getPreference = function (personId, preferenceName, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -619,10 +624,8 @@
       var queryParams = {
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -647,7 +650,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/PreferencePaging}
      */
-    this.getPreferences = function(personId, opts) {
+    this.getPreferences = function (personId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -665,10 +668,8 @@
         'maxItems': opts['maxItems'],
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -695,7 +696,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/SitePaging}
      */
-    this.getSiteMembership = function(personId, opts) {
+    this.getSiteMembership = function (personId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -715,10 +716,8 @@
         'relations': this.apiClient.buildCollectionParam(opts['relations'], 'csv'),
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -742,7 +741,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/SiteMembershipRequestEntry}
      */
-    this.getSiteMembershipRequest = function(personId, siteId, opts) {
+    this.getSiteMembershipRequest = function (personId, siteId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -764,10 +763,8 @@
       var queryParams = {
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -792,7 +789,7 @@
      * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
      * data is of type: {module:model/SiteMembershipRequestPaging}
      */
-    this.getSiteMembershipRequests = function(personId, opts) {
+    this.getSiteMembershipRequests = function (personId, opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -810,10 +807,8 @@
         'maxItems': opts['maxItems'],
         'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -834,7 +829,7 @@
      * @param {String} personId The identifier of a person.
      * @param {String} favoriteId The identifier of a favorite.
      */
-    this.removeFavoriteSite = function(personId, favoriteId) {
+    this.removeFavoriteSite = function (personId, favoriteId) {
       var postBody = null;
 
       // verify the required parameter 'personId' is set
@@ -852,12 +847,9 @@
         'personId': personId,
         'favoriteId': favoriteId
       };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -878,7 +870,7 @@
      * @param {String} personId The identifier of a person.
      * @param {String} siteId The identifier of a site.
      */
-    this.removeSiteMembershipRequest = function(personId, siteId) {
+    this.removeSiteMembershipRequest = function (personId, siteId) {
       var postBody = null;
 
       // verify the required parameter 'personId' is set
@@ -896,12 +888,9 @@
         'personId': personId,
         'siteId': siteId
       };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
@@ -923,7 +912,7 @@
      * @param {String} siteId The identifier of a site.
      * @param {module:model/SiteMembershipBody1} siteMembershipBody The new message to display
      */
-    this.updateSiteMembershipRequest = function(personId, siteId, siteMembershipBody) {
+    this.updateSiteMembershipRequest = function (personId, siteId, siteMembershipBody) {
       var postBody = siteMembershipBody;
 
       // verify the required parameter 'personId' is set
@@ -946,12 +935,9 @@
         'personId': personId,
         'siteId': siteId
       };
-      var queryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
 
       var authNames = ['basicAuth'];
       var contentTypes = ['application/json'];
