@@ -120,6 +120,34 @@
       );
     }
 
+    this.getImage = function (processDefinitionId) {
+      var postBody = null;
+
+      // verify the required parameter 'processDefinitionId' is set
+      if (processDefinitionId == undefined || processDefinitionId == null) {
+        throw "Missing the required parameter 'processDefinitionId' when calling getImage";
+      }
+
+      var pathParams = {
+        'processDefinitionId': processDefinitionId
+      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json', 'image/png'];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '../../../workflow/versions/1/process-definitions/{processDefinitionId}/image', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
   }
 
   return exports;

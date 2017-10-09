@@ -684,6 +684,8 @@ declare namespace AlfrescoApi {
         getProcessDefinition(processDefinitionId?: string, opts?: any): Promise<ProcessDefinitionEntry>;
 
         getStartFormModel(processDefinitionId?: string, opts?: any): Promise<TaskFormModelPaging>;
+
+        getImage(processDefinitionId?: string): Promise<{}>;
     }
 
     export interface QueriesApi {
