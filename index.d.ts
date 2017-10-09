@@ -1840,7 +1840,7 @@ declare namespace AlfrescoApi {
     export interface Variable {
         scope?: string;
         name?: string;
-        value?: number;
+        value?: any;
         type?: string;
     }
 
