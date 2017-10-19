@@ -674,6 +674,8 @@ declare namespace AlfrescoApi {
         deleteVariable(processId?: string, variableName?: string): Promise<{}>;
 
         updateVariable(processId?: string, variableName?: string, variableBody?: VariableBody): Promise<VariableEntry>;
+
+        updateVariables(processId?: string, variableBody?: VariableBody[]): Promise<VariablePaging>;
     }
 
     export interface ProcessDefinitionsApi {

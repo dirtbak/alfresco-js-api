@@ -372,6 +372,37 @@
       );
     }
 
+    this.updateVariables = function (processId, variableBody) {
+      var postBody = variableBody;
+
+      // verify the required parameter 'processId' is set
+      if (processId == undefined || processId == null) {
+        throw "Missing the required parameter 'processId' when calling updateVariables";
+      }
+      // verify the required parameter 'variableBody' is set
+      if (variableBody == undefined || variableBody == null) {
+        throw "Missing the required parameter 'variableBody' when calling updateVariables";
+      }
+
+      var pathParams = {
+        'processId': processId,
+      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = VariablePaging;
+
+      return this.apiClient.callApi(
+        '../../../workflow/versions/1/processes/{processId}/variables/', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
   }
 
   return exports;
