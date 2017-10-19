@@ -63,7 +63,7 @@ class AlfrescoUpload extends AlfrescoCoreRestApi.NodesApi {
         formParams = formParams || {};
 
         var authNames = ['basicAuth'];
-        var contentTypes = ['multipart/form-data'];
+        var contentTypes = ['application/json', 'multipart/form-data'];
         var accepts = ['application/json'];
         var returnType = AlfrescoCoreRestApi.NodeEntry;
 
