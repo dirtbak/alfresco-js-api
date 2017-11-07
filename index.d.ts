@@ -43,7 +43,7 @@ declare class AlfrescoApi {
     upload: AlfrescoUpload;
 
 
-    search: any;
+    search: SearchApi;
     nodes: NodesApi;
     content: ContentApi;
     upload: UploadApi;
@@ -101,7 +101,7 @@ declare namespace AlfrescoApi {
         core: Core;
         discovery: Discovery;
 
-        search: any;
+        search: SearchApi;
         nodes: NodesApi;
         content: ContentApi;
         upload: UploadApi;
@@ -1907,6 +1907,12 @@ declare namespace AlfrescoApi {
 
     //  ======= Search Start ======
 
+    export interface SearchApi {
+        new(client: ApiClient): SearchApi;
+
+        search(queryBody?: any): Promise<ResultSetPaging>;
+
+    }
 
     //  ======= Search End ======
 
@@ -2326,6 +2332,20 @@ declare namespace AlfrescoApi {
         clientId?: string;
         secret?: string;
         host?: string;
+    }
+
+    export interface ResultSetRowEntry {
+        entry?: any;
+    }
+
+    export interface ResultSetPaging {
+        list?: ResultSetPagingList;
+    }
+
+    export interface ResultSetPagingList {
+        entries?: Array<ResultSetRowEntry>;
+        pagination?: Pagination;
+        context?: any;
     }
 
 }
