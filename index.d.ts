@@ -32,6 +32,7 @@ declare class AlfrescoApi {
     Auth: Auth;
     Core: Core;
     Discovery: Discovery;
+    Search: Search;
 
     bpmAuth: BpmAuthApi;
     ecmAuth: EcmAuthApi;
@@ -41,9 +42,8 @@ declare class AlfrescoApi {
     core: Core;
     discovery: Discovery;
     upload: AlfrescoUpload;
+    search: Search;
 
-
-    search: SearchApi;
     nodes: NodesApi;
     content: ContentApi;
     upload: UploadApi;
@@ -92,6 +92,7 @@ declare namespace AlfrescoApi {
         Auth: Auth;
         Core: Core;
         Discovery: Discovery;
+        Search: Search;
 
         bpmAuth: BpmAuthApi;
         ecmAuth: EcmAuthApi;
@@ -100,8 +101,8 @@ declare namespace AlfrescoApi {
         activiti: Activiti;
         core: Core;
         discovery: Discovery;
+        search: Search;
 
-        search: SearchApi;
         nodes: NodesApi;
         content: ContentApi;
         upload: UploadApi;
@@ -451,6 +452,34 @@ declare namespace AlfrescoApi {
     }
 
     //  ======= Discovery end ======
+
+    //  ======= Search Start ======
+
+    export interface Search {
+        new(config: any): Search;
+
+        searchApi: SearchApi;
+    }
+
+    export interface SearchApi {
+        search(queryBody?: any): Promise<ResultSetPaging>;
+    }
+
+    export interface ResultSetRowEntry {
+        entry?: any;
+    }
+
+    export interface ResultSetPaging {
+        list?: ResultSetPagingList;
+    }
+
+    export interface ResultSetPagingList {
+        entries?: Array<ResultSetRowEntry>;
+        pagination?: Pagination;
+        context?: any;
+    }
+
+    //  ======= Search End ======
 
 
     //  ======= Core Start ======
@@ -1904,18 +1933,6 @@ declare namespace AlfrescoApi {
 
     //  ======= Auth End ======
 
-
-    //  ======= Search Start ======
-
-    export interface SearchApi {
-        new(client: SearchClient): SearchApi;
-
-        search(queryBody?: any): Promise<ResultSetPaging>;
-
-    }
-
-    //  ======= Search End ======
-
     export interface Activiti {
         new(config: any): Activiti;
 
@@ -2332,20 +2349,6 @@ declare namespace AlfrescoApi {
         clientId?: string;
         secret?: string;
         host?: string;
-    }
-
-    export interface ResultSetRowEntry {
-        entry?: any;
-    }
-
-    export interface ResultSetPaging {
-        list?: ResultSetPagingList;
-    }
-
-    export interface ResultSetPagingList {
-        entries?: Array<ResultSetRowEntry>;
-        pagination?: Pagination;
-        context?: any;
     }
 
 }
