@@ -1908,7 +1908,7 @@ declare namespace AlfrescoApi {
     //  ======= Search Start ======
 
     export interface SearchApi {
-        new(client: ApiClient): SearchApi;
+        new(client: SearchClient): SearchApi;
 
         search(queryBody?: any): Promise<ResultSetPaging>;
 
