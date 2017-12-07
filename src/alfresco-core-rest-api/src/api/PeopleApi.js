@@ -503,6 +503,46 @@
 
 
     /**
+     * Add a person
+     *If applicable, the given person's login access can also be optionally disabled. You must have admin rights to create a person. You can set custom properties when you create a person:
+     * @param {PersonBodyCreate} person The PersonBodyCreate object.
+     * @param {Array.<String>} opts.fields A list of field names.\n\nYou can use this parameter to restrict the fields\nreturned within a response if, for example, you want to save on overall bandwidth.\n\nThe list applies to a returned individual\nentity or entries within a collection.\n\nIf the API method also supports the **include**\nparameter, then the fields specified in the **include**\nparameter are returned in addition to those specified in the **fields** parameter.\n
+     * data is of type: {module:model/PersonEntry}
+     */
+    this.addPerson = function(person) {
+      var postBody = null;
+
+      // verify the required parameter 'personId' is set
+      if (person == undefined || person == null) {
+        throw "Missing the required parameter 'person' when calling addPerson";
+      }
+
+      var pathParams = {
+      };
+
+      var postBody = person;
+
+      var headerParams = {
+      };
+      var formParams = {
+      };
+      var queryParams = {
+      };
+
+      var authNames = ['basicAuth'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = PersonEntry;
+
+      return this.apiClient.callApi(
+        '/people', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+
+    /**
      * Get network information
      * Returns network information on a single network specified by **networkId** for **personId**.
      * @param {String} personId The identifier of a person.

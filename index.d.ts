@@ -631,6 +631,8 @@ declare namespace AlfrescoApi {
     export interface PeopleApi {
         new(client: ApiClient): PeopleApi;
 
+        addPerson(person: PersonBodyCreate): Promise<PersonEntry>;
+
         addFavorite(personld?: string, favoriteBody?: FavoriteBody): Promise<FavoriteEntry>;
 
         addSiteMembershipRequest(personld?: string, siteMembershipBody?: SiteMembershipRequestBody): Promise<SiteMembershipRequestEntry>;
