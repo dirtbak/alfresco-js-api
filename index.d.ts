@@ -602,6 +602,28 @@ declare namespace AlfrescoApi {
         updateNode(nodeld?: string, nodeBody?: NodeBody, opts?: { include?: Array<string>, fields?: Array<string> }): Promise<NodeEntry>;
     }
 
+    export interface GroupApi {
+        new(client: ApiClient): GroupApi;
+
+        getGroups(opts?: { skipCount?: number, maxltems?: number, orderBy?: Array<string>, include?: Array<string>, where?: string, fields?: Array<string> }): Promise<GroupPaging>;
+
+        addGroup(groupCreateBody: {id?: string, displayName?: string, parentIds?: Array<string>}, opts?: { include?: Array<string>, fields?: Array<string> }): Promise<GroupEntry>;
+
+        deleteGroup(groupId: string, opts?: { cascade?: boolean }): Promise<{}>;
+
+        getGroup(groupId: string, opts?: { include?: Array<string>, fields?: Array<string> }): Promise<GroupEntry>;
+
+        updateGroup(groupId: string, groupUpdateBody: {displayName?: string}, opts?: { include?: Array<string>, fields?: Array<string> }): Promise<GroupEntry>;
+
+        getGroupMembers(groupId: string, opts?: { skipCount?: number, maxltems?: number, orderBy?: Array<string>, where?: string, fields?: Array<string> }): Promise<GroupPaging>;
+
+        addGroupMembers(groupId: string, groupMembershipCreateBody: {id?: string, memberType?: string}, opts?: { fields: Array<string> }): Promise<GroupEntry>;
+
+        deleteGroupMember(groupId: string, groupMemberId: string): Promise<{}>;
+
+        getPersonGroups(personId: string, opts?: { skipCount?: number, maxltems?: number, orderBy?: Array<string>, include?: Array<string>, where?: string, fields?: Array<string> }): Promise<GroupPaging>;
+    }
+
     export interface SitesApi {
         new(client?: ApiClient): SitesApi;
 
@@ -1079,6 +1101,25 @@ declare namespace AlfrescoApi {
 
     export interface FavoriteSiteEntry {
         entry?: FavoriteSite;
+    }
+
+    export interface Group {
+        id?: string;
+        displayName?: string;
+        parentIds?: Array<string>;
+    }
+
+    export interface GroupEntry {
+        entry?: Group;
+    }
+
+    export interface GroupPaging {
+        list?: GroupPagingList;
+    }
+
+    export interface GroupPagingList {
+        entries?: Array<GroupEntry>;
+        pagination?: Pagination;
     }
 
     export interface Item {
@@ -2076,6 +2117,7 @@ declare namespace AlfrescoApi {
         favoritesApi: FavoritesApi;
         networksApi: NetworksApi;
         nodesApi: NodesApi;
+        groupApi: GroupApi;
         peopleApi: PeopleApi;
         processesApi: ProcessesApi;
         processDefinitionsApi: ProcessDefinitionsApi;
@@ -2098,10 +2140,10 @@ declare namespace AlfrescoApi {
         AssocChildBody: AssocChildBody;
         AssocInfo: any;
         AssocTargetBody: AssocTargetBody;
-        Candidate: Candidate,
-        CandidateEntry: CandidateEntry,
-        CandidatePaging: CandidatePaging,
-        CandidatePagingList: CandidatePagingList,
+        Candidate: Candidate;
+        CandidateEntry: CandidateEntry;
+        CandidatePaging: CandidatePaging;
+        CandidatePagingList: CandidatePagingList;
         ChildAssocInfo: any;
         Comment: Comment;
         CommentBody: CommentBody;
