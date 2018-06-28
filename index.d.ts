@@ -567,7 +567,7 @@ declare namespace AlfrescoApi {
 
         getDeletedNode(nodeld?: string, opts?: { include?: Array<string> }): Promise<DeletedNodeEntry>;
 
-        getDeletedNodes(opts?: { skipCount?: number, maxltems?: number, include?: Array<string> }): Promise<DeletedNodeEntry>;
+        getDeletedNodes(opts?: { skipCount?: number, maxltems?: number, include?: Array<string> }): Promise<DeletedNodesPaging>;
 
         getFileContent(nodeld?: string, opts?: { attachment?: boolean, ifModifiedSince?: Date }): Promise<{}>;
 
