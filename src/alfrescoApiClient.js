@@ -203,6 +203,9 @@ class AlfrescoApiClient extends ApiClient {
         request.query(this.normalizeParams(queryParams));
 
         // set header parameters
+        if(!headerParams['Accept-Language']) {
+            headerParams['Accept-Language'] = this.config.requestLocale;
+        }
         request.set(this.defaultHeaders).set(this.normalizeParams(headerParams));
 
         if (this.isBpmRequest() && this.isCsrfEnabled()) {

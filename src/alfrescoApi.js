@@ -51,7 +51,8 @@ class AlfrescoApi {
             ticketEcm: config.ticketEcm,
             ticketBpm: config.ticketBpm,
             accessToken: config.accessToken,
-            disableCsrf: config.disableCsrf || false
+            disableCsrf: config.disableCsrf || false,
+            requestLocale: 'ru-ru,ru;q=0.8,en-us;q=0.6,en;q=0.4'
         };
 
         this.ecmPrivateClient = new EcmPrivateClient(this.config);
